@@ -3,46 +3,98 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Advanced CSS - Assignment 1</title>
+    <title>Advanced CSS - Circle</title>
     <style>
-a {
-color : green;
+
+
+
+body {
+  background-color: #050210;
+  height: 100vh;
+  
 }
 
-a[target="_blank"] {
-color: red;
+.circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(to right, #fb5dad, #55fb9f, #b97aff);
+      filter: drop-shadow(0px 0px 25px #b97aff);
+      box-shadow: -2vmin 2vmin 2vmin rgba(251, 93, 173, 0.2),
+                  -2vmin 0 2vmin rgba(85, 251, 159, 0.2),
+                  2vmin -2vmin 2vmin rgba(185, 122, 255, 0.2),
+                  2vmin 2vmin 2vmin rgba(251, 93, 173, 0.2),
+                  -1vmin -1vmin 2vmin rgba(85, 251, 159, 0.2);
+      animation: rotate 2s linear infinite;
+      transform: translate(-50%, -50%) rotate(0deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+.circle::after {
+  content: "";
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: linear-gradient(to top , #0E0624, #0E0624, #0E0624);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glow 1s ease-in-out infinite;
+}
+
+
+.circlepoint {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #060214, #060214, #060214);
+  filter: drop-shadow(0px 0px 25px #b97aff);
+  animation: rotate 2s linear infinite;
+  transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 
 
-h2+p:after {
-      color: yellow;
-   content: " NEW";
-        
+
+
+
+
+@keyframes glow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
 }
 
-h2+p+p:after {
-      color: yellow;
-   content: " NEW";
-        
-}
 
-
-
-body p:nth-child(8):hover {
-  font-style: italic;
-        
-}
-
-#second-div p:nth-child(odd){
-   color: blue;
-
-}
-
-#second-div p:nth-child(even){
-   color: red;
-
-}
 
 
 
@@ -52,26 +104,7 @@ body p:nth-child(8):hover {
 </head>
 
 <body>
-    <h1>Main Heading</h1>
-    <p>Paragraph 1</p>
-    <a href="https://www.google.com/">Google</a>
-    <a href="https://www.google.com/doodles">Google Doodles</a>
-    <a href="https://www.link-group.eu/" target="_blank">Goto Link Group</a>
-    <div id="first-div">
-        <h2>Subheading</h2>
-        <p>Paragraph 2</p>
-        <p>Paragraph 3</p>
-        <div id="second-div">
-            <h3>Sub subheading</h3>
-            <p>Paragraph 4</p>
-            <p>Paragraph 5</p>
-            <p>Paragraph 6</p>
-            <p>Paragraph 7</p>
-            <p>Paragraph 8</p>
-        </div>
-    </div>
-    <p>Paragraph 9</p>
-    <p>Paragraph 10</p>
+<div class="circle"><div class="circlepoint"></div></div>    
 </body>
 
 </html>
